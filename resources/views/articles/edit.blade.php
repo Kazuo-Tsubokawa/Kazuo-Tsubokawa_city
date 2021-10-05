@@ -17,7 +17,7 @@
         </p>
         <p>
             <label class="label" for="category">カテゴリー</label>
-            <input type="text" name="category" value="{{ old('category', $article->category) }}">
+            <input type="text" name="category" value="{{ old('category', $article->category->name) }}">
         </p>
         <p>
             <label class="label" for="body">本文</label>

@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ArticleController::class, 'index'])->name('root');
 
 Route::resource('/articles', ArticleController::class);

@@ -12,9 +12,15 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::all();
+        $category = $request->category;
+        $prefecture = $request->prefecture;
+
+        $params = $request->query();
+        $articles = Article::search($params)->paginate(10);
+
+        $articles->appends(compact('category', 'prefecture'));
         return view('articles.index', compact('articles'));
     }
 
