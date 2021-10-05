@@ -12,11 +12,21 @@
         </p>
         <p>
             <label class="label" for="prefecture">県</label>
-            <input type="text" name="prefecture" value="{{ old('prefecture') }}">
+            <select name="prefecture">
+                @foreach (config('prefecture') as $key => $prefecture)
+                    <option value='' disabled selected style='display:none;'>を選択してください</option>
+                    <option value="{{ $prefecture }}">{{ $prefecture }}</option>
+                @endforeach
+            </select>
         </p>
         <p>
-            <label class="label" for="category">カテゴリー</label>
-            <input type="text" name="category" value="{{ old('category') }}">
+            <label class="label" for="category_id">カテゴリー</label>
+            <select name="category_id">
+                @foreach (config('category') as $key => $category)
+                    <option value='' disabled selected style='display:none;'>を選択してください</option>
+                    <option value="{{ $category }}">{{ $category }}</option>
+                @endforeach
+            </select>
         </p>
         <p>
             <label class="label" for="body">本文</label>

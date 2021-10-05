@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class ArticleController extends Controller
 {
@@ -48,8 +49,10 @@ class ArticleController extends Controller
         $article = new Article;
 
         $article->title = $request->title;
-        $article->prefecture = $request->prefecture;
-        $article->category = $request->category;
+        //$article->prefecture = $request->prefecture;
+        // $article->category_id = $request->category_id;
+        $article->prefecture = $article->select('category_id', __('Category'))->options(Category::all()->pluck('name', 'id'));
+        $article->img_path = $request->img_path;
         $article->body = $request->body;
 
         $article->save();
@@ -95,7 +98,8 @@ class ArticleController extends Controller
 
         $article->title = $request->title;
         $article->prefecture = $request->prefecture;
-        $article->category = $request->category;
+        $article->category_id = $request->category_id;
+        $article->img_path = $request->img_path;
         $article->body = $request->body;
 
         $article->save();

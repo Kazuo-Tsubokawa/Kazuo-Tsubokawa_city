@@ -17,14 +17,14 @@
             {{-- <input class="form-control mr-sm-2" type="search" name="category" placeholder="カテゴリー">
             <input class="form-control mr-sm-2" type="search" name="prefecture" placeholder="県"> --}}
 
-            <select class="form-control mr-sm-2" type="search" name="category" placeholder="カテゴリー">
+            <select class="form-control mr-sm-2" type="search" name="category">
                 @foreach (config('category') as $key => $category)
                     <option value='' disabled selected style='display:none;'>カテゴリーを選択してください</option>
                     <option value="{{ $category }}">{{ $category }}</option>
                 @endforeach
             </select>
 
-            <select class="form-control mr-sm-2" type="search" name="prefecture" placeholder="県">
+            <select class="form-control mr-sm-2" type="search" name="prefecture">
                 @foreach (config('prefecture') as $key => $prefecture)
                     <option value='' disabled selected style='display:none;'>県を選択してください</option>
                     <option value="{{ $prefecture }}">{{ $prefecture }}</option>
