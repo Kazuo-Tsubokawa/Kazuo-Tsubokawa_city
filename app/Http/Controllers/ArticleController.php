@@ -14,13 +14,16 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $category = $request->category;
         $prefecture = $request->prefecture;
-
+        $category = $request->category;
+        
         $params = $request->query();
         $articles = Article::search($params)->paginate(10);
-
-        $articles->appends(compact('category', 'prefecture'));
+        $articles->appends(compact('category','prefecture'));
+        // $query = Article::query();
+        // $query->where('prefecture', 'like','%'. $prefecture . '%') ;
+        // $articles->appends(compact('category', 'prefecture'));
+        // $articles = $query->paginate(10);
         return view('articles.index', compact('articles'));
     }
 
