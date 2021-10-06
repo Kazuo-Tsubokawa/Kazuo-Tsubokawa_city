@@ -28,7 +28,7 @@
             </tbody>
         </table>
 
-        <div class="button-group">
+        <div class="button-group d-flex">
             <input type="button" value="記事一覧へ戻る" onclick="location.href='/articles'" class="btn btn-primary rounded-pill">
             <input type="button" value="編集する" onclick="location.href='/articles/{{ $article->id }}/edit'"
                 class="btn btn-success rounded-pill ml-3">

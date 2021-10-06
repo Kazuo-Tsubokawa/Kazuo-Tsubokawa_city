@@ -31,7 +31,7 @@
                 <label for="body">本文</label>
                 <textarea name="body" cols="30" rows="10">{{ old('body') }}</textarea>
             </p>
-            <input type="submit" value="投稿する" class="btn btn-success rounded-pill ml-auto d-block">
+            <input type="submit" value="投稿する" class="btn btn-success rounded-pill d-block">
         </form>
     </div>
 @endsection

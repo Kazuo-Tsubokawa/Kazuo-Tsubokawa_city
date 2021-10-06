@@ -32,7 +32,8 @@
             <label for="body">本文</label>
             <textarea name="body" cols="30" rows="10">{{ old('body', $article->body) }}</textarea>
         </p>
-        <input type="submit" value="更新する" class="btn btn-success rounded-pill ml-auto d-block">
+        <input type="submit" value="更新する" class="btn btn-success rounded-pill d-block">
+        <input type="hidden" name="img_path" value="{{ $article->img_path }}">
     </form>
     </div>
 @endsection

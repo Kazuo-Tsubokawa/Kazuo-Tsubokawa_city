@@ -53,7 +53,7 @@ class ArticleController extends Controller
         $article->title = $request->title;
         $article->prefecture = $request->prefecture;
         $article->category_id = $request->category_id;
-        $article->img_path = $request->img_path;
+        $article->img_path = 'storage/article_image/3.jpg';
         $article->body = $request->body;
 
         $article->save();

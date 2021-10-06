@@ -12,7 +12,7 @@
                 </li>
             @endforeach
         </ul>
-        <a href="/articles/create"><input type="submit" value="新規投稿" class="btn btn-success rounded-pill mt-5"></a>
+        <a href="/articles/create"><input type="submit" value="新規投稿" class="btn btn-success rounded-pill mt-1 ml-5"></a>
         <div class="d-flex justify-content-center">
             {{ $articles->links() }}
         </div>
