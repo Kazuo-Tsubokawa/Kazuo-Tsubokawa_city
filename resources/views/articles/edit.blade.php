@@ -3,6 +3,7 @@
 @section('title', '記事編集')
 
 @section('content')
+    <div class="container"></div>
     <h1>記事編集</h1>
     <form action="/articles/{{ $article->id }}" method="POST">
         @csrf
@@ -31,6 +32,7 @@
             <label for="body">本文</label>
             <textarea name="body" cols="30" rows="10">{{ old('body', $article->body) }}</textarea>
         </p>
-        <input type="submit" value="更新する">
+        <input type="submit" value="更新する" class="btn btn-success rounded-pill ml-auto d-block">
     </form>
+    </div>
 @endsection
