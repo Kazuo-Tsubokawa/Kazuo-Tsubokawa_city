@@ -17,10 +17,10 @@ class ArticleController extends Controller
     {
         $prefecture = $request->prefecture;
         $category = $request->category;
-        
+
         $params = $request->query();
         $articles = Article::search($params)->paginate(10);
-        $articles->appends(compact('category','prefecture'));
+        $articles->appends(compact('category', 'prefecture'));
         // $query = Article::query();
         // $query->where('prefecture', 'like','%'. $prefecture . '%') ;
         // $articles->appends(compact('category', 'prefecture'));
@@ -35,7 +35,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        $categories = Category::all();
+
+        return view('articles.create', compact('categories'));
     }
 
     /**
@@ -49,9 +51,8 @@ class ArticleController extends Controller
         $article = new Article;
 
         $article->title = $request->title;
-        //$article->prefecture = $request->prefecture;
-        // $article->category_id = $request->category_id;
-        $article->prefecture = $article->select('category_id', __('Category'))->options(Category::all()->pluck('name', 'id'));
+        $article->prefecture = $request->prefecture;
+        $article->category_id = $request->category_id;
         $article->img_path = $request->img_path;
         $article->body = $request->body;
 
@@ -81,8 +82,9 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = Article::find($id);
+        $categories = Category::all();
 
-        return view('/articles.edit', compact('article'));
+        return view('/articles.edit', compact('article', 'categories'));
     }
 
     /**

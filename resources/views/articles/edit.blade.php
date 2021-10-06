@@ -8,19 +8,27 @@
         @csrf
         @method('PATCH')
         <p>
-            <label class="label" for="title">タイトル</label>
+            <label for="title">タイトル</label>
             <input type="text" name="title" value="{{ old('title', $article->title) }}">
         </p>
         <p>
-            <label class="label" for="prefecture">県</label>
-            <input type="text" name="prefecture" value="{{ old('prefecture', $article->prefecture) }}">
+            <label for="prefecture">県</label>
+            <select name="prefecture">
+                @foreach (config('prefecture') as $key => $prefecture)
+                    <option value="{{ $prefecture }}" @if ($article->prefecture == $prefecture) selected @endif>{{ $prefecture }}</option>
+                @endforeach
+            </select>
         </p>
         <p>
-            <label class="label" for="category">カテゴリー</label>
-            <input type="text" name="category" value="{{ old('category', $article->category->name) }}">
+            <label for="category">カテゴリー</label>
+            <select name="category_id">
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" @if ($article->category_id == $category->id) selected @endif>{{ $category->name }}</option>
+                @endforeach
+            </select>
         </p>
         <p>
-            <label class="label" for="body">本文</label>
+            <label for="body">本文</label>
             <textarea name="body" cols="30" rows="10">{{ old('body', $article->body) }}</textarea>
         </p>
         <input type="submit" value="更新する">

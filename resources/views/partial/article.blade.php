@@ -1,7 +1,8 @@
-
 <div class="row">
     <div>
-        <img src="{{ url($article->img_path) }}" class="square-img">
+        @if ($article->img_path !== null)
+            <img src="{{ url($article->img_path) }}" class="square-img">
+        @endif
     </div>
     <div class="ml-3">
         <div class="mt-3 mb-3">
